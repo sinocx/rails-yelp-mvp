@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <div class="container">
+    <h1> <strong><%= @restaurant.name %></strong></h1>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="restaurants">
+              <div class="col-xs-4">
+                <p><%= @restaurant.address %></p>
+              </div>
+              <div class="col-xs-2">
+                <p><%= @restaurant.phone_number %></p>
+              </div>
+              <div class="col-xs-2">
+                <p><%= @restaurant.category %></p>
+              </div>
+            </div>
+          </div>
+        <%= link_to "Home", restaurants_path, class: "btn btn-primary add-restaurant"%>
+      </div>
+      <%= render 'reviews/form_new' %>
+      <div class="row">
+        <%  @restaurant.reviews.each do |review|  %>
+          <div class="review">
+            <p class="white"><%= review.content %></p>
+            <p><% review.rating.times do %>
+              <i class="fas fa-star"></i>
+          <% end %></p>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

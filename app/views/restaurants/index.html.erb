@@ -1,0 +1,32 @@
+
+    <div class="content">
+      <div class="container">
+        <h1>Our Restaurants</h1>
+        <div class="row">
+          <div class="col-xs-12">
+              <% @restaurants.each do |restaurant| %>
+            <div class="restaurants">
+              <div class="col-xs-4">
+                <p><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></p>
+              </div>
+              <div class="col-xs-4">
+                <p><%= restaurant.address %></p>
+              </div>
+              <div class="col-xs-2">
+                <p><%= restaurant.phone_number %></p>
+              </div>
+              <div class="col-xs-2">
+                <p><%= restaurant.category %></p>
+              </div>
+            </div>
+              <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
+            <%= link_to "Add Restaurant", new_restaurant_path, class: "btn btn-primary add-restaurant" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
